@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="./assets/spiko_logo.svg" width="200"/>
-</p>
-
-
 
 
 #  Sistem Pakan Ikan Otomatis Berbasis IoT
