@@ -1,17 +1,9 @@
 
-
 #  Sistem Pakan Ikan Otomatis Berbasis IoT
+<img width="968" height="1005" alt="image" src="https://github.com/user-attachments/assets/f44cf915-afe7-4649-a831-3c361a58234f" />
 
 
-<div align="center">
 
-<h3>Tautan Cepat (Quick Links)</h3>
-
-<a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
-  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-FF0000?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
-</a>
-
-</div>
 
 
 # Deskripsi Proyek
