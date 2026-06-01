@@ -3,6 +3,17 @@
 #  Sistem Pakan Ikan Otomatis Berbasis IoT
 
 
+<div align="center">
+
+<h3>Tautan Cepat (Quick Links)</h3>
+
+<a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
+  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-FF0000?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+</a>
+
+</div>
+
+
 # Deskripsi Proyek
 Proyek ini memanfaatkan mikrokontroler Arduino Mega (ATMega2560) sebagai platform utama, yang terintegrasi dengan beberapa sensor dan aktuator, yaitu sensor suhu air DS18B20, sensor pH, motor servo sebagai mekanisme pembuka pakan, serta modul RTC DS3231 untuk pengaturan dan penjadwalan waktu yang presisi. Sistem ini bertujuan untuk mengotomatisasi proses pemberian pakan ikan sesuai jadwal yang telah ditentukan. Data parameter kualitas air (suhu dan pH) akan dikirimkan secara kontinu ke sebuah dashboard web yang dapat diakses dari jarak jauh melalui internet. Selain fitur otomatisasi, sistem juga menyediakan fasilitas kontrol manual melalui aplikasi mobile atau web, sehingga pengguna tetap dapat mengintervensi pemberian pakan secara langsung sesuai kebutuhan.
 
