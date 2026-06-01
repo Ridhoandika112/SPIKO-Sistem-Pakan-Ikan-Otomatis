@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
 </a>
 <a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
-  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-#0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
 </a>
 
 <br><br> <a href="https://wokwi.com/projects/465644996192840705" target="_blank">
