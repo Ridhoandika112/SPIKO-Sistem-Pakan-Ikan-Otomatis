@@ -2,7 +2,29 @@
 #  Sistem Pakan Ikan Otomatis Berbasis IoT
 <img width="968" height="1005" alt="image" src="https://github.com/user-attachments/assets/f44cf915-afe7-4649-a831-3c361a58234f" />
 
+<div align="center">
 
+<h3> (Quick Links)</h3>
+
+</a>
+<a href="https://www.figma.com/board/nQaKevaOmZXrhzAG5bN8zr/mindmap?node-id=0-1&t=7XO1ccPex7rEJP1g-1" target="_blank">
+  <img src="https://img.shields.io/badge/MINDMAP-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Mindmap">
+</a>
+<a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
+  <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
+</a>
+<a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
+  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-#0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+</a>
+
+<br><br> <a href="https://wokwi.com/projects/465644996192840705" target="_blank">
+  <img src="https://img.shields.io/badge/SIMULASI%20WOKWI-0000FF?style=for-the-badge&logo=arduino&logoColor=white" alt="Simulasi Wokwi">
+</a>
+<a href="https://canva.link/strf7c127qnlvye" target="_blank">
+  <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
+</a>
+
+</div>
 
 
 
@@ -14,6 +36,22 @@ Proyek ini memanfaatkan mikrokontroler Arduino Mega (ATMega2560) sebagai platfor
 # Tujuan Proyek
 Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduino Mega yang dapat bekerja secara terjadwal, memantau kualitas air secara real-time, serta memungkinkan pengendalian dan pemantauan jarak jauh melalui dashboard web.
 
+
+
+---
+
+
+### Fitur Utama
+
+| Fitur | Keterangan |
+| :--- | :--- |
+| 🌐 **IoT Web Dashboard** | Antarmuka pengguna responsif untuk pemantauan kualitas air dan status perangkat secara *real-time*. |
+| 🕒 **Penjadwalan Presisi** | Pemberian pakan otomatis yang diatur secara presisi menggunakan modul RTC DS3231. |
+| 🌡️ **Sensor Suhu DS18B20** | Pembacaan suhu air kolam secara akurat (protokol *One-Wire*) untuk memantau kelayakan habitat. |
+| 💧 **Sensor pH Analog** | Deteksi tingkat keasaman atau kebasaan air secara berkesinambungan untuk mencegah anomali. |
+| ⚙️ **Dual Control Mode** | Mendukung eksekusi pemberian pakan secara otomatis sesuai jadwal maupun *override* kontrol manual. |
+| 🧠 **Arduino Mega 2560** | Pusat komputasi sistem yang tangguh dengan kapasitas I/O berlimpah untuk kelancaran multi-sensor. |
+| 🔄 **Aktuator Presisi** | Menggunakan Motor Servo untuk mekanisme katup pakan dengan pengaturan porsi (Kecil, Sedang, Besar). |
 
 
 ---
