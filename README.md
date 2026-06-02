@@ -39,38 +39,6 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 
 ---
-
-
-### Fitur Utama
-
-| Fitur | Keterangan |
-| :--- | :--- |
-| 🌐 **IoT Web Dashboard** | Antarmuka pengguna responsif untuk pemantauan kualitas air dan status perangkat secara *real-time*. |
-| 🕒 **Penjadwalan Presisi** | Pemberian pakan otomatis yang diatur secara presisi menggunakan modul RTC DS3231. |
-| 🌡️ **Sensor Suhu DS18B20** | Pembacaan suhu air kolam secara akurat (protokol *One-Wire*) untuk memantau kelayakan habitat. |
-| 💧 **Sensor pH Analog** | Deteksi tingkat keasaman atau kebasaan air secara berkesinambungan untuk mencegah anomali. |
-| ⚙️ **Dual Control Mode** | Mendukung eksekusi pemberian pakan secara otomatis sesuai jadwal maupun *override* kontrol manual. |
-| 🧠 **Arduino Mega 2560** | Pusat komputasi sistem yang tangguh dengan kapasitas I/O berlimpah untuk kelancaran multi-sensor. |
-| 🔄 **Aktuator Presisi** | Menggunakan Motor Servo untuk mekanisme katup pakan dengan pengaturan porsi (Kecil, Sedang, Besar). |
-
-
----
-
-
-### 🛠️ Daftar Komponen & Spesifikasi Perangkat Keras
-
-| Komponen | Spesifikasi / Konfigurasi Pin | Fungsi Utama pada Sistem |
-| :--- | :--- | :--- |
-| 🧠 **Arduino Mega 2560** | ATmega2560, 5V, 16 MHz | Mikrokontroler utama sebagai pusat pemrosesan logika kontrol, pembacaan data sensor, dan eksekusi aktuator. |
-| ⚙️ **Motor Servo** | *PWM Output* (Pin Digital 9) | Bertindak sebagai mekanik pembuka dan penutup katup wadah pakan sesuai porsi/durasi yang diinstruksikan. |
-| 🕒 **Modul RTC (Real-Time Clock)** | DS1307 / DS3231 (I²C: SDA Pin 20, SCL Pin 21) | Menyediakan data waktu nyata (jam, kalender) yang presisi agar jadwal pakan otomatis tidak terpengaruh saat sistem *restart*. |
-| 🌡️ **Sensor Suhu DS18B20** | *One-Wire Digital* (Pin Digital 10) | Memantau perubahan suhu air kolam secara presisi dan mengirimkan data secara digital ke mikrokontroler. |
-| 💧 **Sensor pH Air** | *Analog Input* (Pin Analog A0) | Mendeteksi tingkat keasaman/kebasaan air. *(Catatan: Pada diagram simulasi, modul ini diwakili oleh komponen Potensiometer)*. |
-
-
----
-
-
 ## Support By
 
 > * Dosen Pengampu: Akhmad Hendriawan ST., MT. (NIP. 197501272002121003)
@@ -93,7 +61,33 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 ---
 
+### Fitur Utama
+
+| Fitur | Kegunaan |
+| :--- | :--- |
+|**IoT Web Dashboard** | Antarmuka pengguna responsif untuk pemantauan kualitas air dan status perangkat secara *real-time*. |
+|**Penjadwalan Presisi** | Pemberian pakan otomatis yang diatur secara presisi menggunakan modul RTC DS3231. |
+|**Sensor Suhu DS18B20** | Pembacaan suhu air kolam secara akurat (protokol *One-Wire*) untuk memantau kelayakan habitat. |
+|**Sensor pH Analog** | Deteksi tingkat keasaman atau kebasaan air secara berkesinambungan untuk mencegah anomali. |
+|**Dual Control Mode** | Mendukung eksekusi pemberian pakan secara otomatis sesuai jadwal maupun *override* kontrol manual. |
+|**Arduino Mega 2560** | Pusat komputasi sistem yang tangguh dengan kapasitas I/O berlimpah untuk kelancaran multi-sensor. |
+|**Aktuator Presisi** | Menggunakan Motor Servo untuk mekanisme katup pakan dengan pengaturan porsi (Kecil, Sedang, Besar). |
 
 
+---
 
- 
+
+### 🛠️ Daftar Komponen & Spesifikasi Perangkat Keras
+
+| Komponen | Spesifikasi / Konfigurasi Pin | Fungsi Utama pada Sistem |
+| :--- | :--- | :--- |
+| 🧠 **Arduino Mega 2560** | ATmega2560, 5V, 16 MHz | Mikrokontroler utama sebagai pusat pemrosesan logika kontrol, pembacaan data sensor, dan eksekusi aktuator. |
+| ⚙️ **Motor Servo** | *PWM Output* (Pin Digital 9) | Bertindak sebagai mekanik pembuka dan penutup katup wadah pakan sesuai porsi/durasi yang diinstruksikan. |
+| 🕒 **Modul RTC (Real-Time Clock)** | DS1307 / DS3231 (I²C: SDA Pin 20, SCL Pin 21) | Menyediakan data waktu nyata (jam, kalender) yang presisi agar jadwal pakan otomatis tidak terpengaruh saat sistem *restart*. |
+| 🌡️ **Sensor Suhu DS18B20** | *One-Wire Digital* (Pin Digital 10) | Memantau perubahan suhu air kolam secara presisi dan mengirimkan data secara digital ke mikrokontroler. |
+| 💧 **Sensor pH Air** | *Analog Input* (Pin Analog A0) | Mendeteksi tingkat keasaman/kebasaan air. *(Catatan: Pada diagram simulasi, modul ini diwakili oleh komponen Potensiometer)*. |
+
+
+---
+
+
