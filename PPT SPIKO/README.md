@@ -1,2 +1,10 @@
-berikut link dari PPT
-https://canva.link/strf7c127qnlvye
+# SLIDE SHOW PPT
+![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/PPT%20SPIKO/1.png)
+![image_alt]()
+![image_alt]()
+![image_alt]()
+![image_alt]()
+![image_alt]()
+![image_alt]()
+![image_alt]()
+![image_alt]()
