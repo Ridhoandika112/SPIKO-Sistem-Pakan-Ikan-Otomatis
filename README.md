@@ -80,7 +80,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 ### 🛠️ Daftar Komponen & Spesifikasi Perangkat Keras
 
 | Komponen | Spesifikasi / Konfigurasi Pin | Fungsi Utama pada Sistem |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | 🧠 **Arduino Mega 2560** | ATmega2560, 5V, 16 MHz | Mikrokontroler utama sebagai pusat pemrosesan logika kontrol, pembacaan data sensor, dan eksekusi aktuator. |
 | ⚙️ **Motor Servo** | *PWM Output* (Pin Digital 9) | Bertindak sebagai mekanik pembuka dan penutup katup wadah pakan sesuai porsi/durasi yang diinstruksikan. |
 | 🕒 **Modul RTC (Real-Time Clock)** | DS1307 / DS3231 (I²C: SDA Pin 20, SCL Pin 21) | Menyediakan data waktu nyata (jam, kalender) yang presisi agar jadwal pakan otomatis tidak terpengaruh saat sistem *restart*. |
