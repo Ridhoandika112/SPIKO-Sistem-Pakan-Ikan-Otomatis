@@ -64,7 +64,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 ### Fitur Utama
 
 | Fitur | Kegunaan |
-| :--- | :--- |
+| :---: | :---: |
 |**IoT Web Dashboard** | Antarmuka pengguna responsif untuk pemantauan kualitas air dan status perangkat secara *real-time*. |
 |**Penjadwalan Presisi** | Pemberian pakan otomatis yang diatur secara presisi menggunakan modul RTC DS3231. |
 |**Sensor Suhu DS18B20** | Pembacaan suhu air kolam secara akurat (protokol *One-Wire*) untuk memantau kelayakan habitat. |
