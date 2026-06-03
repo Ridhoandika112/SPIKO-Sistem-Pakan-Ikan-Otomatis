@@ -1,6 +1,6 @@
 # SLIDE SHOW PPT
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/PPT%20SPIKO/1.png)
-![image_alt]()
+![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/PPT%20SPIKO/2.png)
 ![image_alt]()
 ![image_alt]()
 ![image_alt]()
