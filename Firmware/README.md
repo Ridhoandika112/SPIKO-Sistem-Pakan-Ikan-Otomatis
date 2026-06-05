@@ -1,17 +1,86 @@
-## 🚀 Quick Link Simulasi
+## 📥 Tutorial Download dan Membuka Project SPIKO di VSCode
 
-Klik tautan berikut untuk membuka dan menjalankan simulasi sistem SPIKO secara langsung di Wokwi:
+Project **SPIKO** juga disediakan dalam bentuk file **SPIKO.zip**. File ini berisi folder project **PlatformIO** yang dapat dibuka menggunakan **Visual Studio Code**.
 
-🔗 **[Buka Simulasi SPIKO di Wokwi](https://wokwi.com/projects/465644996192840705)**
+### 1. Download File SPIKO.zip
 
-Atau simulasi juga dapat diakses melalui file **PlatformIO VSCode** yang sudah disediakan pada folder Firmware.
+Download file **SPIKO.zip** yang sudah disediakan pada repository GitHub.
+
+Caranya:
+
+1. Klik file **SPIKO.zip**.
+2. Tekan tombol **Download** atau **View raw** untuk mengunduh file.
+3. Simpan file **SPIKO.zip** ke folder yang mudah ditemukan, misalnya **Downloads** atau **Documents**.
 
 ---
 
-## 🖥️ Pengantar Simulasi Wokwi
+### 2. Ekstrak File ZIP
 
-Simulasi sistem **SPIKO** dibuat menggunakan platform **Wokwi** sebagai media pengujian rangkaian dan program secara virtual. Melalui simulasi ini, pengguna dapat melihat bagaimana sistem monitoring kualitas air dan pemberian pakan ikan otomatis bekerja tanpa harus langsung menggunakan perangkat keras fisik.
+Setelah file berhasil diunduh, ekstrak file **SPIKO.zip** terlebih dahulu.
 
-Pada simulasi ini, **Arduino Mega 2560** digunakan sebagai mikrokontroler utama yang mengolah data dari beberapa komponen, seperti sensor suhu **DS18B20**, modul waktu nyata **RTC DS1307**, sensor pH analog yang disimulasikan menggunakan **potensiometer**, serta **motor servo** sebagai aktuator pemberi pakan.
+Caranya:
 
-Dengan adanya simulasi Wokwi, proses pengujian sistem menjadi lebih mudah karena pengguna dapat memantau pembacaan sensor, menguji logika program, serta memastikan aktuator bekerja sesuai dengan kondisi yang telah ditentukan. Simulasi ini juga dapat digunakan sebagai tahap awal sebelum sistem direalisasikan dalam bentuk hardware sebenarnya.
+1. Klik kanan pada file **SPIKO.zip**.
+2. Pilih **Extract All...** atau **Ekstrak Semua**.
+3. Pilih lokasi penyimpanan folder hasil ekstrak.
+4. Klik **Extract**.
+5. Setelah selesai, akan muncul folder project SPIKO.
+
+---
+
+### 3. Buka Project di Visual Studio Code
+
+Setelah folder project berhasil diekstrak, buka project tersebut menggunakan **Visual Studio Code**.
+
+Caranya:
+
+1. Buka aplikasi **Visual Studio Code**.
+2. Pilih menu **File**.
+3. Klik **Open Folder...**.
+4. Pilih folder hasil ekstrak dari **SPIKO.zip**.
+5. Klik **Select Folder**.
+
+Pastikan folder yang dibuka adalah folder project yang di dalamnya terdapat file:
+
+```text
+platformio.ini
+src/
+include/
+lib/
+```
+
+File **platformio.ini** menandakan bahwa folder tersebut adalah project **PlatformIO**.
+
+---
+
+### 4. Pastikan Extension PlatformIO Sudah Terpasang
+
+Agar project dapat dijalankan, pastikan extension **PlatformIO IDE** sudah terpasang di VSCode.
+
+Caranya:
+
+1. Buka menu **Extensions** di VSCode.
+2. Cari **PlatformIO IDE**.
+3. Klik **Install** jika belum terpasang.
+4. Tunggu hingga proses instalasi selesai.
+5. Restart VSCode jika diperlukan.
+
+---
+
+### 5. Buka dan Jalankan Project
+
+Setelah project terbuka di VSCode, PlatformIO akan membaca konfigurasi dari file **platformio.ini** secara otomatis.
+
+Langkah selanjutnya:
+
+1. Tunggu hingga PlatformIO selesai memuat project.
+2. Buka file program utama pada folder:
+
+```text
+src/main.cpp
+```
+
+3. Klik ikon **Build** untuk melakukan kompilasi program.
+4. Jika ingin menjalankan simulasi Wokwi, gunakan file konfigurasi Wokwi yang sudah tersedia di dalam folder project.
+
+---
