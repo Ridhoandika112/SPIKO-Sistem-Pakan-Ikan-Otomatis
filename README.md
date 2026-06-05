@@ -68,11 +68,6 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 ---
 
-</div>
-<div align="center">
-<h3> (Quick Links)</h3>
-</div>
-  
 ## PPT ##
 <a href="https://canva.link/strf7c127qnlvye" target="_blank">
   <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
