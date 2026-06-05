@@ -7,6 +7,5 @@ Makna dalam logo:
 
 3. Bingkai hexagonal (segi enam) melambangkan stabilitas, efisiensi, dan integrasi teknologi. Bentuk ini merepresentasikan sistem yang kokoh, terstruktur, dan mampu menghubungkan berbagai komponen menjadi satu solusi yang andal.
 
-4. Penggunaan warna toska mencerminkan keseimbangan antara teknologi dan lingkungan. Warna ini melambangkan pertumbuhan, keberlanjutan, inovasi, serta harapan untuk menciptakan budidaya perikanan yang lebih modern dan ramah lingkungan.
 
 Secara keseluruhan, logo SPIKO menggambarkan identitas sebuah produk teknologi yang cerdas, inovatif, dan terpercaya, yang hadir untuk membantu pembudidaya ikan mengoptimalkan proses pemberian pakan melalui sistem otomatis berbasis IoT.
