@@ -81,13 +81,18 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 | Komponen | Spesifikasi / Konfigurasi Pin | Fungsi Utama pada Sistem |
 | :---: | :---: | :---: |
-| 🧠 **Arduino Mega 2560** | ATmega2560, 5V, 16 MHz | Mikrokontroler utama sebagai pusat pemrosesan logika kontrol, pembacaan data sensor, dan eksekusi aktuator. |
-| ⚙️ **Motor Servo** | *PWM Output* (Pin Digital 9) | Bertindak sebagai mekanik pembuka dan penutup katup wadah pakan sesuai porsi/durasi yang diinstruksikan. |
-| 🕒 **Modul RTC (Real-Time Clock)** | DS1307 / DS3231 (I²C: SDA Pin 20, SCL Pin 21) | Menyediakan data waktu nyata (jam, kalender) yang presisi agar jadwal pakan otomatis tidak terpengaruh saat sistem *restart*. |
-| 🌡️ **Sensor Suhu DS18B20** | *One-Wire Digital* (Pin Digital 10) | Memantau perubahan suhu air kolam secara presisi dan mengirimkan data secara digital ke mikrokontroler. |
-| 💧 **Sensor pH Air** | *Analog Input* (Pin Analog A0) | Mendeteksi tingkat keasaman/kebasaan air. *(Catatan: Pada diagram simulasi, modul ini diwakili oleh komponen Potensiometer)*. |
-
+|**Arduino Mega 2560** | ATmega2560, 5V, 16 MHz | Mikrokontroler utama sebagai pusat pemrosesan logika kontrol, pembacaan data sensor, dan eksekusi aktuator. |
+| **Motor Servo** | *PWM Output* (Pin Digital 9) | Bertindak sebagai mekanik pembuka dan penutup katup wadah pakan sesuai porsi/durasi yang diinstruksikan. |
+|**Modul RTC (Real-Time Clock)** | DS1307 / DS3231 (I²C: SDA Pin 20, SCL Pin 21) | Menyediakan data waktu nyata (jam, kalender) yang presisi agar jadwal pakan    otomatis tidak terpengaruh saat sistem *restart*. |
+| **Sensor Suhu DS18B20** | *One-Wire Digital* (Pin Digital 10) | Memantau perubahan suhu air kolam secara presisi dan mengirimkan data secara digital ke mikrokontroler. |
+|**Sensor pH Air** | *Analog Input* (Pin Analog A0) | Mendeteksi tingkat keasaman/kebasaan air. *(Catatan: Pada diagram simulasi, modul ini diwakili oleh komponen Potensiometer)*. |
 
 ---
+
+## PPT ##
+<a href="https://canva.link/strf7c127qnlvye" target="_blank">
+  <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
+</a>
+
 
 
