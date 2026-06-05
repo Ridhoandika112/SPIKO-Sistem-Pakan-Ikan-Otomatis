@@ -3,27 +3,6 @@
 <img width="968" height="1005" alt="image" src="https://github.com/user-attachments/assets/f44cf915-afe7-4649-a831-3c361a58234f" />
 
 <div align="center">
-
-<h3> (Quick Links)</h3>
-
-</a>
-<a href="https://www.figma.com/board/nQaKevaOmZXrhzAG5bN8zr/mindmap?node-id=0-1&t=7XO1ccPex7rEJP1g-1" target="_blank">
-  <img src="https://img.shields.io/badge/MINDMAP-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Mindmap">
-</a>
-<a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
-  <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
-</a>
-<a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
-  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
-</a>
-
-<br><br> <a href="https://wokwi.com/projects/465644996192840705" target="_blank">
-  <img src="https://img.shields.io/badge/SIMULASI%20WOKWI-0000FF?style=for-the-badge&logo=arduino&logoColor=white" alt="Simulasi Wokwi">
-</a>
-<a href="https://canva.link/strf7c127qnlvye" target="_blank">
-  <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
-</a>
-
 </div>
 
 
@@ -89,10 +68,32 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 ---
 
+</div>
+<div align="center">
+<h3> (Quick Links)</h3>
+</div>
+  
 ## PPT ##
 <a href="https://canva.link/strf7c127qnlvye" target="_blank">
   <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
 </a>
 
+## UI-UX ##
+<a href="https://www.figma.com/make/QbkKy7pj1Dl7t2FqqGLqkM/Automated-Fish-Feeding-System?t=4AijnWL1JbrCFFVg-20&fullscreen=1" target="_blank">
+  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+</a>
 
+## SIMULASI WOKWI ##
+<a href="https://wokwi.com/projects/465644996192840705" target="_blank">
+  <img src="https://img.shields.io/badge/SIMULASI%20WOKWI-0000FF?style=for-the-badge&logo=arduino&logoColor=white" alt="Simulasi Wokwi">
+</a>
 
+## MINDMAP ##
+<a href="https://www.figma.com/board/nQaKevaOmZXrhzAG5bN8zr/mindmap?node-id=0-1&t=7XO1ccPex7rEJP1g-1" target="_blank">
+  <img src="https://img.shields.io/badge/MINDMAP-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Mindmap">
+</a>
+
+## FISHBONE ##
+<a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
+  <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
+</a>
