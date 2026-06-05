@@ -1,8 +1,8 @@
-## 🔧 Komponen Hardware SPIKO
+##  Komponen Hardware SPIKO
 
 Sistem **SPIKO** menggunakan beberapa komponen utama yang saling terintegrasi untuk melakukan monitoring kualitas air dan pemberian pakan secara otomatis. Mikrokontroler utama yang digunakan adalah **Arduino Mega 2560**, dengan sensor suhu, sensor pH, RTC, dan motor servo sebagai aktuator.
 
-### 📦 Daftar Komponen
+### Daftar Komponen
 
 | No | Komponen                   | Fungsi                                                                      |
 | -- | -------------------------- | --------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@ Sistem **SPIKO** menggunakan beberapa komponen utama yang saling terintegrasi un
 
 ---
 
-## 🧩 Mapping Pinout ATmega2560
+##  Mapping Pinout ATmega2560
 
 Berikut adalah konfigurasi pin yang digunakan pada sistem SPIKO:
 
@@ -29,9 +29,9 @@ Berikut adalah konfigurasi pin yang digunakan pada sistem SPIKO:
 
 ---
 
-## ⚙️ Koneksi Hardware
+##  Koneksi Hardware
 
-### 🌡️ Sensor Suhu DS18B20
+###  Sensor Suhu DS18B20
 
 Sensor DS18B20 digunakan untuk membaca suhu air secara digital. Pin **DQ** sensor dihubungkan ke pin **22 (PA0)** pada Arduino Mega 2560.
 
@@ -43,7 +43,7 @@ GND         → GND
 
 ---
 
-### 🧪 Sensor pH / Potensiometer
+### Sensor pH / Potensiometer
 
 Pada simulasi, sensor pH digantikan menggunakan potensiometer. Output potensiometer dihubungkan ke pin analog **A0 (PF0)**.
 
@@ -55,7 +55,7 @@ GND                            → GND
 
 ---
 
-### ⏰ Modul RTC DS1307
+###  Modul RTC DS1307
 
 Modul RTC DS1307 digunakan untuk menyimpan dan membaca waktu secara real-time. Komunikasi dilakukan menggunakan protokol **I2C**.
 
@@ -68,7 +68,7 @@ GND            → GND
 
 ---
 
-### 🔄 Motor Servo
+### Motor Servo
 
 Motor servo digunakan sebagai aktuator untuk membuka dan menutup mekanisme pemberian pakan. Sinyal kontrol servo diberikan melalui pin **9 (PH6)**.
 
@@ -80,7 +80,7 @@ GND          → GND
 
 ---
 
-## 🖥️ Ringkasan Sistem
+## Ringkasan Sistem
 
 Sistem SPIKO bekerja dengan membaca parameter suhu dan pH air, kemudian menggunakan modul RTC DS1307 sebagai acuan waktu untuk proses pemberian pakan otomatis. Data dari sensor diproses oleh Arduino Mega 2560, sedangkan motor servo berfungsi sebagai aktuator untuk membuka dan menutup tempat pakan sesuai jadwal yang telah ditentukan.
 
