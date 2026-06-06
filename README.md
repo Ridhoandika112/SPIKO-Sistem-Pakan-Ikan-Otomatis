@@ -56,7 +56,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 ---
 
 
-### 🛠️ Daftar Komponen & Spesifikasi Perangkat Keras
+### Daftar Komponen & Spesifikasi Perangkat Keras
 
 | Komponen | Spesifikasi / Konfigurasi Pin | Fungsi Utama pada Sistem |
 | :---: | :---: | :---: |
