@@ -24,6 +24,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 > * Mata Kuliah: Mikrokontroller
 > * Program Studi: D4 Teknik Elektronika 
 > * Politeknik Elektronika Negeri Surabaya
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/eb80d20a-1525-4c9c-bae1-e65036afb14a" />
 
 
 #  Anggota Tim
