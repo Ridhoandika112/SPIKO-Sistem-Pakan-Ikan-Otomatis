@@ -1,4 +1,4 @@
-# SLIDE SHOW PPT
+# TAMPILAN APLIKASI
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/UI%20UX/login.png)
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/UI%20UX/dashboard.png)
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/UI%20UX/monitor%20air.png)
