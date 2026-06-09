@@ -15,3 +15,7 @@ Simulasi sistem **SPIKO** dibuat menggunakan platform **Wokwi** sebagai media pe
 Pada simulasi ini, **Arduino Mega 2560** digunakan sebagai mikrokontroler utama yang mengolah data dari beberapa komponen, seperti sensor suhu **DS18B20**, modul waktu nyata **RTC DS1307**, sensor pH analog yang disimulasikan menggunakan **potensiometer**, serta **motor servo** sebagai aktuator pemberi pakan.
 
 Dengan adanya simulasi Wokwi, proses pengujian sistem menjadi lebih mudah karena pengguna dapat memantau pembacaan sensor, menguji logika program, serta memastikan aktuator bekerja sesuai dengan kondisi yang telah ditentukan. Simulasi ini juga dapat digunakan sebagai tahap awal sebelum sistem direalisasikan dalam bentuk hardware sebenarnya.
+
+---
+## INDEKS
+Simulasi sistem **SPIKO** dengan tampilan figma yang diubah menjadi tampilan html untuk melakukan simulasi menggunakan **PLATFORM.IO**
