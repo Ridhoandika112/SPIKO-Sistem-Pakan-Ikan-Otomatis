@@ -94,3 +94,8 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 <a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
   <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
 </a>
+
+## VIDIO IKLAN ##
+<a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
+  <img src="https://img.shields.io/badge/VIDIO IKLAN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
+</a>
