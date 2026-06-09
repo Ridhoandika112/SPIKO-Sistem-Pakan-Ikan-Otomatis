@@ -1,4 +1,4 @@
-## 🚀 Quick Link Simulasi
+## 🚀 Quick Link Simulasi ##
 
 Klik tautan berikut untuk membuka dan menjalankan simulasi sistem SPIKO secara langsung di Wokwi:
 
