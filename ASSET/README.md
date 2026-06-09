@@ -1,5 +1,5 @@
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/ASSET/logo%20SPIKO.png)
-SPIKO (Sistem Pakan Ikan Otomatis Berbasis IoT) merepresentasikan perpaduan antara teknologi modern dan sektor perikanan untuk menciptakan solusi budidaya yang lebih efisien, cerdas, dan berkelanjutan.
+SPIKO (Sistem Pakan Ikan Otomatis Berbasis IoT) Secara visual, penggabungan seluruh elemen dalam logo ini tidak hanya sekadar estetika, melainkan sebuah representasi dari "Smart Aquaculture". Bentuk ikan yang berada di dalam bingkai hexagonal dengan pancaran sinyal menegaskan posisi SPIKO sebagai wadah pelindung sekaligus pendorong modernisasi perikanan. SPIKO merepresentasikan perpaduan antara teknologi modern dan sektor perikanan untuk menciptakan solusi budidaya yang lebih efisien, cerdas, dan berkelanjutan.
 Makna dalam logo: 
 
 1. Bentuk ikan pada pusat logo melambangkan fokus utama SPIKO, yaitu membantu para pembudidaya dalam menjaga kebutuhan nutrisi ikan secara tepat dan terjadwal. Ikon ikan juga menggambarkan komitmen SPIKO dalam mendukung peningkatan produktivitas dan kesejahteraan sektor perikanan.
