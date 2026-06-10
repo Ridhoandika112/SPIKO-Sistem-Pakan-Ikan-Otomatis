@@ -81,6 +81,8 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 ## Schematic ##
 <img width="698" height="750" alt="Schematic Hardware" src="https://github.com/user-attachments/assets/ca0d90ad-9534-4862-91df-e6d5d94ae06c" />
 
+## Board Layout ##
+<img width="1153" height="631" alt="Board Layout" src="https://github.com/user-attachments/assets/30c100e8-52da-4490-a855-96a80132a5da" />
 
 
 ## 3D DESIGN PCB ##
