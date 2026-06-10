@@ -1,5 +1,5 @@
 
-#  Sistem Pakan Ikan Otomatis Berbasis IoT
+#  Sistem Pakan Ikan Otomatis Di Aquarium Berbasis IoT
 <img width="968" height="1005" alt="image" src="https://github.com/user-attachments/assets/f44cf915-afe7-4649-a831-3c361a58234f" />
 
 <div align="center">
