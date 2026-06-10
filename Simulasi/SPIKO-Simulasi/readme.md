@@ -71,4 +71,24 @@ node bridge.js
 [*] SISTEM SIAP: Menunggu Wokwi di port 8080 & Web di port 8081
 (Biarkan jendela terminal ini tetap terbuka dan menyala selama sistem beroperasi).
 
+### Langkah 3: Menjalankan Simulasi Perangkat Keras (Wokwi)
+1. Buka file konfigurasi tata letak perangkat keras diagram.json.
+2. Klik tombol Start Simulation (ikon Play berwarna hijau) yang muncul di area editor visual Wokwi VS Code.
+3. Periksa kembali terminal bridge.js yang Anda jalankan pada Langkah 2. Jika koneksi berhasil, akan muncul pesan jabat tangan (handshake):
+[*] BERHASIL: Wokwi VS Code Terhubung!
 
+### Langkah 4: Membuka Dasbor Monitoring (Frontend Web)
+1. Cari file index.html di dalam direktori proyek Anda.
+2. Buka file index.html tersebut dengan klik ganda atau klik kanan dan pilih peramban web pilihan Anda (Google Chrome atau Microsoft Edge sangat direkomendasikan).
+3. Dasbor akan langsung terhubung secara otomatis ke gerbang port 8081 melalui protokol WebSocket.
+4. Indikator pada sidebar kiri yang semula merah bertuliskan "Bridge Offline" akan seketika berubah menjadi hijau bertuliskan "Arduino Terhubung", menandakan visualisasi grafik dan kontrol pakan manual siap digunakan.
+
+## Struktur Directory Project Pada Platform.Io
+SPIKO-Project/
+├── .pio/                 # Berisi cache kompilasi PlatformIO (Abaikan)
+├── include/              # Folder untuk file header tambahan (.h)
+├── src/
+│   └── main.cpp          # Firmware Utama C++ (Logika Arduino Mega)
+├── diagram.json          # Konfigurasi Pinout & Kabel Simulator Wokwi
+├── platformio.ini        # Manajer Dependensi Library PlatformIO
+├── bridge.js             # Gateway Server TCP-to-WebSocket (Node.js)
