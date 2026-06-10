@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIKO - Sistem Pakan Ikan Otomatis</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+        }
+        .sidebar-active {
+            background-color: #009688;
+            color: white;
+            border-radius: 0.5rem;
+        }
+        .custom-teal { color: #009688; }
+        .bg-custom-teal { background-color: #009688; }
+        .bg-dark-navy { background-color: #0b1320; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-dark-navy text-slate-400 flex flex-col justify-between p-4 z-10 shrink-0">
+        <div>
+            <div class="flex items-center gap-3 px-2 py-4 border-b border-slate-800">
+                <div class="w-10 h-10 bg-custom-teal rounded-xl flex items-center justify-center text-white text-xl">
+                    <i class="fa-solid fa-fish-fins"></i>
+                </div>
+                <div>
+                    <h1 class="text-white font-bold tracking-wide text-sm">SPIKO</h1>
+                    <p class="text-xs text-slate-500">Sistem Pakan Otomatis</p>
+                </div>
+            </div>
+
+            <div class="mt-4 px-3 py-2 bg-slate-900/50 rounded-lg flex items-center justify-between border border-slate-800/60">
+                <div class="flex items-center gap-2 text-xs">
+                    <i class="fa-solid fa-microchip text-custom-teal"></i>
+                    <span class="text-slate-300 font-medium" id="txt-koneksi-sidebar">Menunggu Koneksi</span>
+                </div>
+                <span id="dot-koneksi-sidebar" class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            </div>
+
+            <nav class="mt-6 flex flex-col gap-1 text-sm font-medium">
+                <button onclick="switchView('dashboard')" id="nav-dashboard" class="sidebar-active flex items-center justify-between w-full px-3 py-3 text-left hover:text-white transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-chart-pie w-5"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-70"></i>
+                </button>
+                <button onclick="switchView('monitor')" id="nav-monitor" class="flex items-center justify-between w-full px-3 py-3 text-left hover:text-white transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-droplet w-5"></i>
+                        <span>Monitor Air</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-0"></i>
+                </button>
+                <button onclick="switchView('jadwal')" id="nav-jadwal" class="flex items-center justify-between w-full px-3 py-3 text-left hover:text-white transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-calendar-days w-5"></i>
+                        <span>Jadwal Pakan</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-0"></i>
+                </button>
+                <button onclick="switchView('kontrol')" id="nav-kontrol" class="flex items-center justify-between w-full px-3 py-3 text-left hover:text-white transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-bolt w-5"></i>
+                        <span>Kontrol Manual</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-0"></i>
+                </button>
+                <button onclick="switchView('perangkat')" id="nav-perangkat" class="flex items-center justify-between w-full px-3 py-3 text-left hover:text-white transition-all">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-gears w-5"></i>
+                        <span>Perangkat</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs opacity-0"></i>
+                </button>
+            </nav>
+        </div>
+
+        <div class="border-t border-slate-800 pt-4 flex flex-col gap-3">
+            <div class="bg-slate-900/40 p-3 rounded-xl flex flex-col gap-1 text-xs">
+                <span class="text-slate-500">Logged in as</span>
+                <span class="text-slate-200 font-semibold">admin</span>
+            </div>
+            <button class="flex items-center gap-2 text-sm text-rose-400 font-medium px-2 py-1 hover:text-rose-300 transition-colors">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Keluar</span>
+            </button>
+            <div class="text-[10px] text-slate-600 font-mono space-y-0.5 mt-2">
+                <div>ATMega2560 · 16 MHz</div>
+                <div>DS18B20 · pH · DS3231 · Servo</div>
+                <div class="text-custom-teal">v1.1.0 · SPIKO Live</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-8 shrink-0">
+            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                <span>Automated Fish Feeding System</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400"></i>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 bg-orange-50 border border-orange-100 text-orange-700 px-3 py-1.5 rounded-lg text-xs font-semibold">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <span id="head-suhu">--°C</span>
+                </div>
+                <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-100 text-emerald-700 px-3 py-1.5 rounded-lg text-xs font-semibold">
+                    <i class="fa-solid fa-flask"></i>
+                    <span id="head-ph">pH --</span>
+                </div>
+                <div class="relative cursor-pointer text-slate-500 p-2 hover:bg-slate-100 rounded-full transition-colors">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white rounded-full text-[10px] flex items-center justify-center font-bold">1</span>
+                </div>
+                <div class="flex items-center gap-2 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full">
+                    <span id="dot-koneksi-head" class="w-2 h-2 rounded-full bg-slate-300"></span>
+                    <span id="txt-koneksi-head" class="text-xs font-medium text-slate-600">Offline</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8" id="content-area">
+
+            <div class="mb-8 pb-6 border-b border-slate-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="global-kolam-container">
+                    <div id="kolam-A" onclick="pilihKolam('A')" class="kolam-card border-2 border-emerald-500 bg-white p-4 rounded-xl shadow-xs cursor-pointer relative transition-all opacity-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center gap-3">
+                                <div id="icon-bg-A" class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-lg transition-colors"><i class="fa-solid fa-fish"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-slate-800 text-sm">Kolam A</h3>
+                                    <p class="text-xs text-slate-400">Nila</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Kapasitas: <b class="text-slate-700">500 L</b></span>
+                            <span id="badge-A" class="kolam-badge text-emerald-600 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> Dipilih</span>
+                        </div>
+                    </div>
+                    <div id="kolam-B" onclick="pilihKolam('B')" class="kolam-card border border-slate-200 bg-white p-4 rounded-xl shadow-xs cursor-pointer relative transition-all opacity-60 hover:opacity-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center gap-3">
+                                <div id="icon-bg-B" class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center text-lg transition-colors"><i class="fa-solid fa-fish"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-slate-700 text-sm">Kolam B</h3>
+                                    <p class="text-xs text-slate-400">Lele</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Kapasitas: <b class="text-slate-700">750 L</b></span>
+                            <span id="badge-B" class="kolam-badge hidden text-emerald-600 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> Dipilih</span>
+                        </div>
+                    </div>
+                    <div id="kolam-C" onclick="pilihKolam('C')" class="kolam-card border border-slate-200 bg-white p-4 rounded-xl shadow-xs cursor-pointer relative transition-all opacity-60 hover:opacity-100">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center gap-3">
+                                <div id="icon-bg-C" class="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center text-lg transition-colors"><i class="fa-solid fa-fish"></i></div>
+                                <div>
+                                    <h3 class="font-bold text-slate-700 text-sm">Kolam C</h3>
+                                    <p class="text-xs text-slate-400">Gurame</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Kapasitas: <b class="text-slate-700">1000 L</b></span>
+                            <span id="badge-C" class="kolam-badge hidden text-emerald-600 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> Dipilih</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-dashboard" class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Dashboard</h2>
+                    <p class="text-xs text-slate-500 mt-1" id="current-date">--/--/----</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between items-start">
+                            <div class="w-8 h-8 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-temperature-half"></i></div>
+                            <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Live</span>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xs text-slate-400">Suhu Air</p>
+                            <h4 id="dash-suhu" class="text-2xl font-bold text-slate-800 mt-1">--°C</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Normal: 25-30°C</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between items-start">
+                            <div class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-droplet"></i></div>
+                            <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Live</span>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xs text-slate-400">Tingkat pH</p>
+                            <h4 id="dash-ph" class="text-2xl font-bold text-slate-800 mt-1">--</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Normal: 6.5-7.5</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between items-start">
+                            <div class="w-8 h-8 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center text-sm"><i class="fa-regular fa-clock"></i></div>
+                            <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Aktual</span>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xs text-slate-400">Eksekusi Terakhir</p>
+                            <h4 id="dash-terakhir" class="text-2xl font-bold text-slate-800 mt-1">--:--</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Sistem Otomatis / Manual</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between items-start">
+                            <div class="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center text-sm"><i class="fa-regular fa-calendar"></i></div>
+                            <span class="bg-purple-50 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded-full">Terjadwal</span>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-xs text-slate-400">Pemberian Berikutnya</p>
+                            <h4 class="text-2xl font-bold text-slate-800 mt-1">18:00</h4>
+                            <p class="text-[10px] text-slate-400 mt-1">Jadwal otomatis RTC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-white p-5 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-sm font-bold text-slate-700">Monitor Kualitas Air (Real-Time Grafik)</h3>
+                            <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded-md">Live Stream dari Wokwi</span>
+                        </div>
+                        <div class="h-64 relative">
+                            <canvas id="chartDashboard"></canvas>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-custom-teal text-white p-5 rounded-xl shadow-xs flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs opacity-80 uppercase font-bold tracking-wider">
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <span>Kontrol Cepat</span>
+                                </div>
+                                <h3 class="text-lg font-bold mt-2">Beri Pakan Sekarang</h3>
+                                <p class="text-xs opacity-70 mt-1">Aktifkan servo motor secara manual tanpa merusak rutinitas jadwal.</p>
+                            </div>
+                            <button onclick="switchView('kontrol')" class="mt-6 w-full bg-white text-teal-800 font-bold py-3 px-4 rounded-lg shadow-sm hover:bg-slate-50 active:scale-95 transition-all text-sm flex items-center justify-center gap-2">
+                                Menuju Kontrol Manual <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-xs text-xs space-y-2">
+                            <h4 class="font-bold text-slate-700">Status Sistem</h4>
+                            <div class="flex justify-between py-1 border-b border-slate-100"><span class="text-slate-400">Pakan Sisa</span><span class="font-medium text-slate-700">85% (Aman)</span></div>
+                            <div class="flex justify-between py-1 border-b border-slate-100"><span class="text-slate-400">Wi-Fi Gateway</span><span class="font-medium text-emerald-600">Local RFC Bridge</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-monitor" class="hidden space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Monitor Air</h2>
+                    <p class="text-xs text-slate-500 mt-1">Analisis parameter mendalam dari sensor DS18B20 dan Analog pH.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-5 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between"><span class="text-sm font-semibold text-slate-600">Suhu Air Saat Ini</span><span class="text-xs text-emerald-500 font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> Terhubung</span></div>
+                        <h3 id="mon-suhu" class="text-3xl font-bold text-slate-800 mt-2">-- <span class="text-lg font-normal text-slate-400">°C</span></h3>
+                    </div>
+                    <div class="bg-white p-5 border border-slate-200 rounded-xl shadow-xs">
+                        <div class="flex justify-between"><span class="text-sm font-semibold text-slate-600">Tingkat pH Saat Ini</span><span class="text-xs text-emerald-500 font-semibold"><i class="fa-solid fa-circle text-[8px]"></i> Terhubung</span></div>
+                        <h3 id="mon-ph" class="text-3xl font-bold text-slate-800 mt-2">--</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-jadwal" class="hidden space-y-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Jadwal Pakan</h2>
+                        <p class="text-xs text-slate-500 mt-1">Konfigurasi automasi pemberian pakan berbasis waktu nyata.</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl flex items-center justify-between shadow-xs">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center text-sm font-bold">06:00</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-sm text-slate-700">Pagi</span>
+                                    <span class="bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded-sm">Sedang</span>
+                                    <span class="text-slate-400 text-[10px]">3 Detik</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-emerald-600 font-bold bg-emerald-50 px-3 py-1 rounded-lg">Aktif di C++</span>
+                    </div>
+                    <div class="bg-white p-4 border border-slate-200 rounded-xl flex items-center justify-between shadow-xs">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center text-sm font-bold">18:00</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-sm text-slate-700">Malam</span>
+                                    <span class="bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded-sm">Sedang</span>
+                                    <span class="text-slate-400 text-[10px]">3 Detik</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-emerald-600 font-bold bg-emerald-50 px-3 py-1 rounded-lg">Aktif di C++</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-kontrol" class="hidden space-y-6 max-w-2xl mx-auto">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800 text-center">Kontrol Manual</h2>
+                    <p class="text-xs text-slate-500 mt-1 text-center">Eksekusi katup pakan langsung dari dasbor web ke servo motor Wokwi.</p>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-xs text-blue-700 flex gap-3">
+                    <i class="fa-solid fa-circle-info text-base mt-0.5"></i>
+                    <p class="leading-relaxed">Menekan tombol di bawah akan mengirimkan sinyal bypass via WebSocket menuju Arduino Mega untuk membuka katup servo pakan secara instan selama 3 detik.</p>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-xs flex flex-col items-center justify-center text-center">
+                    <div class="w-16 h-16 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-custom-teal text-2xl mb-4 shadow-inner" id="feeding-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-slate-700" id="status-feed-text">Siap Memberi Pakan</h4>
+                    <p class="text-[10px] text-slate-400 mt-1" id="selected-summary">Katup Saat Ini: <b id="lbl-katup-fisik" class="text-slate-600">Tertutup (0°)</b></p>
+                    
+                    <button onclick="pemicuPakanManual()" class="mt-6 w-full max-w-sm bg-custom-teal hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl shadow-sm transition-all text-sm flex items-center justify-center gap-2 active:scale-98 cursor-pointer">
+                        <i class="fa-solid fa-circle-play"></i> Aktifkan Pemberian Pakan
+                    </button>
+                </div>
+
+                <!-- SERIAL MONITOR PANEL -->
+                <div class="bg-[#0b1320] border border-slate-700 rounded-xl overflow-hidden shadow-lg">
+                    <div class="flex items-center justify-between px-4 py-2.5 border-b border-slate-700">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
+                            <i class="fa-solid fa-terminal text-custom-teal"></i>
+                            <span>Serial Monitor</span>
+                            <span class="text-slate-600 font-normal">— Output langsung dari Arduino Wokwi</span>
+                        </div>
+                        <button onclick="clearSerialLog()" class="text-[10px] text-slate-500 hover:text-rose-400 transition-colors font-medium flex items-center gap-1">
+                            <i class="fa-solid fa-trash-can"></i> Bersihkan
+                        </button>
+                    </div>
+                    <div id="serial-log-body" class="h-56 overflow-y-auto p-4 flex flex-col gap-1.5 font-mono text-xs">
+                        <div class="flex gap-3 items-start">
+                            <span class="text-slate-600 shrink-0 font-mono text-[10px] mt-0.5">--:--:--</span>
+                            <span class="text-slate-500 font-mono text-[11px]">Menunggu koneksi ke bridge.js dan Wokwi...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-perangkat" class="hidden space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Perangkat</h2>
+                    <p class="text-xs text-slate-500 mt-1">Status aktual pembacaan internal RTC dan pemetaan pin hardware.</p>
+                </div>
+
+                <div class="bg-white p-4 border border-slate-200 rounded-xl flex items-center justify-between shadow-xs max-w-md">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-lg"><i class="fa-regular fa-clock"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-800">DS3231 RTC Module</h4>
+                            <p class="text-[10px] text-slate-400">Waktu Aktual Sistem (dari C++)</p>
+                            <p id="val-rtc" class="text-xs font-bold text-custom-teal mt-0.5">--:--:--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // --- 1. CONFIG GRAPH CHART.JS ---
+        let labelsX = [];
+        let dataSuhuY = [];
+        let dataPhY = [];
+
+        let ctxDash = document.getElementById('chartDashboard').getContext('2d');
+        let chartDash = new Chart(ctxDash, {
+            type: 'line',
+            data: {
+                labels: labelsX,
+                datasets: [
+                    { label: 'Suhu (°C)', data: dataSuhuY, borderColor: '#ea580c', backgroundColor: 'rgba(234, 88, 12, 0.05)', tension: 0.4, fill: true, pointRadius: 3 },
+                    { label: 'pH Air', data: dataPhY, borderColor: '#0284c7', backgroundColor: 'rgba(2, 132, 199, 0.05)', tension: 0.4, fill: true, yAxisID: 'y1', pointRadius: 3 }
+                ]
+            },
+            options: {
+                responsive: true, 
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    y: { type: 'linear', position: 'left', min: 20, max: 35 },
+                    y1: { type: 'linear', position: 'right', min: 5, max: 9, grid: { drawOnChartArea: false } }
+                }
+            }
+        });
+
+        // Fungsi Reset Grafik Total (Dibersihkan saat koneksi baru terjadi)
+        function resetGrafikRealtime() {
+            chartDash.data.labels = [];
+            chartDash.data.datasets[0].data = [];
+            chartDash.data.datasets[1].data = [];
+            chartDash.update();
+            console.log("Grafik di-reset bersih untuk merekam data live baru.");
+        }
+
+        // Fungsi Memasukkan Titik Koordinat Sensor ke Grafik berkala
+        function updateGrafik(waktu, suhu, ph) {
+            const MAX_POINTS = 12; // Batasi grafik agar tidak berat memuat memori
+            if (chartDash.data.labels.length >= MAX_POINTS) {
+                chartDash.data.labels.shift();
+                chartDash.data.datasets[0].data.shift();
+                chartDash.data.datasets[1].data.shift();
+            }
+            chartDash.data.labels.push(waktu.substring(0, 5)); // Ambil HH:MM saja
+            chartDash.data.datasets[0].data.push(suhu);
+            chartDash.data.datasets[1].data.push(ph);
+            chartDash.update('none'); // Update instan tanpa efek lag animasi
+        }
+
+        // --- 2. WEBSOCKET CLIENT LOGIC ---
+        const ws = new WebSocket('ws://localhost:8081');
+
+        ws.onopen = () => {
+            // 1. Reset grafik ketika baru terhubung dengan Wokwi agar tidak ada sisa data lama
+            resetGrafikRealtime();
+
+            // 2. Ubah indikator warna UI menjadi hijau (Koneksi Sukses)
+            document.getElementById('txt-koneksi-sidebar').innerText = "Arduino Terhubung";
+            document.getElementById('dot-koneksi-sidebar').classList.replace('bg-rose-500', 'bg-emerald-500');
+            document.getElementById('txt-koneksi-head').innerText = "Live Stream";
+            document.getElementById('dot-koneksi-head').classList.replace('bg-slate-300', 'bg-emerald-500');
+            document.getElementById('dot-koneksi-head').classList.add('animate-pulse');
+            appendSerialLog('[SISTEM] WebSocket terhubung ke bridge.js (ws://localhost:8081)', 'text-emerald-400');
+        };
+
+        ws.onclose = () => {
+            // Ubah indikator warna UI menjadi merah jika jembatan mati
+            document.getElementById('txt-koneksi-sidebar').innerText = "Bridge Offline";
+            document.getElementById('dot-koneksi-sidebar').classList.replace('bg-emerald-500', 'bg-rose-500');
+            document.getElementById('txt-koneksi-head').innerText = "Offline";
+            document.getElementById('dot-koneksi-head').classList.replace('bg-emerald-500', 'bg-slate-300');
+            document.getElementById('dot-koneksi-head').classList.remove('animate-pulse');
+            appendSerialLog('[SISTEM] Koneksi ke bridge.js terputus.', 'text-rose-400');
+        };
+
+        ws.onmessage = (event) => {
+            try {
+                const payload = JSON.parse(event.data);
+
+                // A. Update Teks Nilai Numerik Sensor jika ada datanya
+                if (payload.suhu !== undefined) {
+                    document.getElementById('head-suhu').innerText = payload.suhu + "°C";
+                    document.getElementById('dash-suhu').innerText = payload.suhu + "°C";
+                    document.getElementById('mon-suhu').innerHTML = payload.suhu + ' <span class="text-lg font-normal text-slate-400">°C</span>';
+                }
+                if (payload.ph !== undefined) {
+                    document.getElementById('head-ph').innerText = "pH " + payload.ph;
+                    document.getElementById('dash-ph').innerText = payload.ph;
+                    document.getElementById('mon-ph').innerText = payload.ph;
+                }
+                if (payload.waktu !== undefined) {
+                    document.getElementById('val-rtc').innerText = payload.waktu;
+                }
+
+                // B. Tangkap umpan balik pergerakan katup fisik dari C++ Arduino
+                if (payload.status !== undefined) {
+                    const iconBox = document.getElementById('feeding-icon');
+                    const statusText = document.getElementById('status-feed-text');
+                    const labelKatup = document.getElementById('lbl-katup-fisik');
+
+                    if (payload.status === "Katup Dibuka") {
+                        statusText.innerText = "Servo Membuka Katup... (Feeding)";
+                        statusText.className = "font-bold text-sm text-emerald-600 animate-pulse";
+                        labelKatup.innerText = "Terbuka (90°)";
+                        labelKatup.className = "text-emerald-600 font-bold";
+                        iconBox.className = "w-16 h-16 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center text-emerald-500 text-2xl mb-4 text-emerald-600 rotate-12 transition-transform";
+                        iconBox.innerHTML = '<i class="fa-solid fa-fish-fins animate-bounce"></i>';
+                        
+                        // Perbarui teks jam pemberian pakan terakhir di dasbor utama
+                        const jamSekarang = payload.waktu ? payload.waktu.substring(0, 5) : "--:--";
+                        document.getElementById('dash-terakhir').innerText = jamSekarang;
+
+                        // Log ke Serial Monitor HTML
+                        appendSerialLog('[ARDUINO → SERIAL] {"status": "Katup Dibuka"} → Servo bergerak ke 90°', 'text-emerald-400');
+                    } 
+                    else if (payload.status === "Katup Tertutup") {
+                        statusText.innerText = "Pemberian Pakan Sukses!";
+                        statusText.className = "font-bold text-sm text-custom-teal";
+                        labelKatup.innerText = "Tertutup (0°)";
+                        labelKatup.className = "text-slate-600 font-normal";
+                        iconBox.className = "w-16 h-16 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center text-custom-teal text-2xl mb-4";
+                        iconBox.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+                        // Log ke Serial Monitor HTML
+                        appendSerialLog('[ARDUINO → SERIAL] {"status": "Katup Tertutup"} → Servo kembali ke 0°', 'text-sky-400');
+
+                        // Kembalikan ke teks stanby setelah 3 detik
+                        setTimeout(() => {
+                            statusText.innerText = "Siap Memberi Pakan";
+                            statusText.className = "font-bold text-sm text-slate-700";
+                            iconBox.className = "w-16 h-16 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-custom-teal text-2xl mb-4 shadow-inner";
+                            iconBox.innerHTML = '<i class="fa-solid fa-bolt"></i>';
+                        }, 3000);
+                    }
+                }
+
+                // C. Stream data baru ke grafik Chart.js
+                if (payload.suhu !== undefined && payload.ph !== undefined && payload.waktu !== undefined) {
+                    updateGrafik(payload.waktu, payload.suhu, payload.ph);
+                    appendSerialLog(`[SENSOR] ${event.data}`, 'text-slate-300');
+                }
+
+            } catch (e) {
+                console.log("Pesan non-JSON terdeteksi dari jembatan:", event.data);
+            }
+        };
+
+        // --- 3. FUNGSI KIRIM COMMAND KE ARDUINO ---
+        function pemicuPakanManual() {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send('FEED_MANUAL'); // Mengirim string instruksi via WebSocket ke bridge.js
+                
+                // Set indikator tunggu sementara sebelum hardware membalas
+                document.getElementById('status-feed-text').innerText = "Mengirim Perintah ke Hardware...";
+                document.getElementById('status-feed-text').className = "font-bold text-sm text-amber-600 animate-pulse";
+
+                // Tulis log ke Serial Monitor panel HTML
+                appendSerialLog('[WEB → ARDUINO] Perintah dikirim: FEED_MANUAL', 'text-amber-400');
+            } else {
+                alert("Koneksi Gagal: Jembatan bridge.js belum dijalankan di terminal!");
+                appendSerialLog('[ERROR] WebSocket tidak terhubung. Jalankan bridge.js terlebih dahulu.', 'text-rose-400');
+            }
+        }
+
+        // --- FUNGSI SERIAL MONITOR PANEL ---
+        function appendSerialLog(text, colorClass = 'text-slate-300') {
+            const logBox = document.getElementById('serial-log-body');
+            if (!logBox) return;
+            const now = new Date();
+            const timestamp = now.toTimeString().substring(0, 8);
+            const line = document.createElement('div');
+            line.className = 'flex gap-3 items-start';
+            line.innerHTML = `<span class="text-slate-600 shrink-0 font-mono text-[10px] mt-0.5">${timestamp}</span><span class="${colorClass} font-mono text-[11px] leading-relaxed break-all">${text}</span>`;
+            logBox.appendChild(line);
+            // Scroll ke bawah otomatis
+            logBox.scrollTop = logBox.scrollHeight;
+            // Batasi maksimal 60 baris agar tidak berat
+            while (logBox.children.length > 60) {
+                logBox.removeChild(logBox.firstChild);
+            }
+        }
+
+        function clearSerialLog() {
+            const logBox = document.getElementById('serial-log-body');
+            if (logBox) logBox.innerHTML = '';
+        }
+
+        // --- 4. FUNGSI LAYOUT NAVIGASI (Sama seperti bawaan Anda) ---
+        function switchView(viewName) {
+            const views = ['dashboard', 'monitor', 'jadwal', 'kontrol', 'perangkat'];
+            views.forEach(v => {
+                document.getElementById('view-' + v).classList.add('hidden');
+                document.getElementById('nav-' + v).classList.remove('sidebar-active');
+                const chv = document.querySelector(`#nav-${v} i.fa-chevron-right`);
+                if(chv) chv.classList.add('opacity-0');
+            });
+
+            document.getElementById('view-' + viewName).classList.remove('hidden');
+            document.getElementById('nav-' + viewName).classList.add('sidebar-active');
+            const activeChv = document.querySelector(`#nav-${viewName} i.fa-chevron-right`);
+            if(activeChv) activeChv.classList.remove('opacity-0');
+        }
+
+        function pilihKolam(idKolam) {
+            const kolams = ['A', 'B', 'C'];
+            kolams.forEach(k => {
+                const card = document.getElementById('kolam-' + k);
+                const badge = document.getElementById('badge-' + k);
+                const iconBg = document.getElementById('icon-bg-' + k);
+                card.className = "kolam-card border border-slate-200 bg-white p-4 rounded-xl shadow-xs cursor-pointer relative transition-all opacity-60 hover:opacity-100";
+                badge.classList.add('hidden');
+                iconBg.className = "w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center text-lg transition-colors";
+            });
+            document.getElementById('kolam-' + idKolam).className = "kolam-card border-2 border-emerald-500 bg-white p-4 rounded-xl shadow-xs cursor-pointer relative transition-all opacity-100";
+            document.getElementById('badge-' + idKolam).classList.remove('hidden');
+            document.getElementById('icon-bg-' + idKolam).className = "w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center text-lg transition-colors";
+        }
+
+        // Tampilkan tanggal hari ini lokal pc
+        const formatSetting = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('id-ID', formatSetting);
+    </script>
+</body>
+</html>

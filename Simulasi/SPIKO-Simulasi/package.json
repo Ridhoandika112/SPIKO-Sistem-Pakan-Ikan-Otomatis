@@ -1,0 +1,28 @@
+{
+  "name": "spiko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bridge.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ridhoandika112/spiko.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ridhoandika112/spiko/issues"
+  },
+  "homepage": "https://github.com/Ridhoandika112/spiko#readme",
+  "dependencies": {
+    "serialport": "^13.0.0",
+    "ws": "^8.21.0"
+  }
+}
