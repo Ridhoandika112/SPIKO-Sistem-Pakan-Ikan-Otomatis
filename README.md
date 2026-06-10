@@ -86,9 +86,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 </a>
 
 ## MINDMAP ##
-<a href="https://www.figma.com/board/nQaKevaOmZXrhzAG5bN8zr/mindmap?node-id=0-1&t=7XO1ccPex7rEJP1g-1" target="_blank">
-  <img src="https://img.shields.io/badge/MINDMAP-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Mindmap">
-</a>
+![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/ASSET/mindmap.png)
 
 ## FISHBONE ##
 <a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
