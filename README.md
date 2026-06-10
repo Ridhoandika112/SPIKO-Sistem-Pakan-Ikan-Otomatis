@@ -75,6 +75,10 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
   <img src="https://img.shields.io/badge/PPT%20CANVA-0000FF?style=for-the-badge&logo=canva&logoColor=white" alt="PPT Canva">
 </a>
 
+## Blok Diagram ##
+<img width="1096" height="510" alt="image" src="https://github.com/user-attachments/assets/b1d96f84-918e-42bd-92e0-b3abdf3d37f3" />
+
+
 ## 3D DESIGN ##
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/3D%20Desain/Tampak%20Alat.png)
 
