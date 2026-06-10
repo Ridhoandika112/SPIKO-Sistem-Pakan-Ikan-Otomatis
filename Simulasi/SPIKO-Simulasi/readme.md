@@ -40,4 +40,24 @@ Sebelum menjalankan aplikasi, pastikan lingkungan pengembangan Anda telah dileng
 ---
 
 ## 🚀 Panduan Pengoperasian Langkah Demi Langkah
+### Langkah 1: Kompilasi Firmware Perangkat Keras (PlatformIO)
+1. Buka folder proyek utama Anda menggunakan VS Code.
+2. Pastikan konfigurasi dependensi pada file `platformio.ini` sudah lengkap seperti berikut:
+   ```ini
+   [env:megaatmega2560]
+   platform = atmelavr
+   board = megaatmega2560
+   framework = arduino
+   lib_deps =
+       arduino-libraries/Servo @ ^1.2.1
+       SPI
+       Wire
+       adafruit/Adafruit BusIO @ ^1.16.1
+       milesburton/DallasTemperature @ ^3.11.0
+       paulstoffregen/OneWire @ ^2.3.7
+       adafruit/RTClib @ ^2.1.1
+3. Tekan tombol PlatformIO: Clean pada Project Tasks untuk membersihkan sisa cache kompilasi lama yang mungkin korup.
+4. Klik tombol PlatformIO: Build (ikon centang di status bar bawah VS Code) untuk mengompilasi kode biner firmware.hex. Pastikan proses berakhir dengan status SUCCESS.
 
+
+└── index.html            # Dasbor Pemantauan Web Interaktif (Tailwind CSS)
