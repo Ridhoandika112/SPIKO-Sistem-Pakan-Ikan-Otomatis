@@ -92,3 +92,4 @@ SPIKO-Project/
 ├── diagram.json          # Konfigurasi Pinout & Kabel Simulator Wokwi
 ├── platformio.ini        # Manajer Dependensi Library PlatformIO
 ├── bridge.js             # Gateway Server TCP-to-WebSocket (Node.js)
+└── index.html            # Dasbor Pemantauan Web Interaktif (Tailwind CSS)
