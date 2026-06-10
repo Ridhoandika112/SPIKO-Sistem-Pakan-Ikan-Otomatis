@@ -84,6 +84,7 @@ node bridge.js
 4. Indikator pada sidebar kiri yang semula merah bertuliskan "Bridge Offline" akan seketika berubah menjadi hijau bertuliskan "Arduino Terhubung", menandakan visualisasi grafik dan kontrol pakan manual siap digunakan.
 
 ## Struktur Directory Project Pada Platform.Io
+ ```
 SPIKO-Project/
 ├── .pio/                 # Berisi cache kompilasi PlatformIO (Abaikan)
 ├── include/              # Folder untuk file header tambahan (.h)
@@ -93,3 +94,4 @@ SPIKO-Project/
 ├── platformio.ini        # Manajer Dependensi Library PlatformIO
 ├── bridge.js             # Gateway Server TCP-to-WebSocket (Node.js)
 └── index.html            # Dasbor Pemantauan Web Interaktif (Tailwind CSS)
+ ```
