@@ -89,9 +89,7 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 ![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/ASSET/mindmap.png)
 
 ## FISHBONE ##
-<a href="https://www.figma.com/board/wMVDDvrdgyJ76Nsycbd3ev/fishbone-map?node-id=0-1&t=WSgcovYdG3pBQ9ex-1" target="_blank">
-  <img src="https://img.shields.io/badge/FISHBONE-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
-</a>
+![image_alt](https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/main/ASSET/fishbone.png)
 
 ## VIDIO IKLAN ##
 <a href="https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/9bb35ed6f565db23a5436418f983b1fbc057d9f7/ASSET/vidio%20iklan%20github.mp4" target="_blank">
