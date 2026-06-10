@@ -61,3 +61,14 @@ Sebelum menjalankan aplikasi, pastikan lingkungan pengembangan Anda telah dileng
 
 
 └── index.html            # Dasbor Pemantauan Web Interaktif (Tailwind CSS)
+### Langkah 2: Eksekusi Jembatan Gateway (Node.js)
+1. Buka terminal baru terintegrasi di dalam VS Code Anda.
+2. Jalankan skrip jembatan komunikasi dengan mengetik perintah berikut:
+   
+node bridge.js
+
+3. Pastikan terminal memunculkan log inisialisasi:
+[*] SISTEM SIAP: Menunggu Wokwi di port 8080 & Web di port 8081
+(Biarkan jendela terminal ini tetap terbuka dan menyala selama sistem beroperasi).
+
+
