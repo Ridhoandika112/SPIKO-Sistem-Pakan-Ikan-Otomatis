@@ -113,3 +113,8 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 <a href="https://github.com/Ridhoandika112/SPIKO-Sistem-Pakan-Ikan-Otomatis/blob/9bb35ed6f565db23a5436418f983b1fbc057d9f7/ASSET/vidio%20iklan%20github.mp4" target="_blank">
   <img src="https://img.shields.io/badge/VIDIO IKLAN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="Fishbone">
 </a>
+
+## VIDIO DEMO KESELURUHAN ##
+<a href="https://drive.google.com/drive/folders/1Q5b7-XY5ffCqigkS9h1ZKFEJzIavjvMV" target="_blank">
+  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+</a>
