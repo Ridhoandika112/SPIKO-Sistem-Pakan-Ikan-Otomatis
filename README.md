@@ -116,5 +116,5 @@ Membangun sistem otomatisasi pemberian pakan ikan berbasis mikrokontroler Arduin
 
 ## VIDIO DEMO KESELURUHAN ##
 <a href="https://drive.google.com/drive/folders/1Q5b7-XY5ffCqigkS9h1ZKFEJzIavjvMV" target="_blank">
-  <img src="https://img.shields.io/badge/UI/UX%20DESAIN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="UI/UX Desain">
+  <img src="https://img.shields.io/badge/VIDEO DEMO KESELURUHAN-0000FF?style=for-the-badge&logo=figma&logoColor=white" alt="VIDEO DEMO KESELURUHAN">
 </a>
